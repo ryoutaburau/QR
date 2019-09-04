@@ -90,6 +90,17 @@ var WebCodeCamJS = function(element) {
             }
         };
 
+// ----ここから追記----
+function switchOS() {
+    var os, ua = navigator.userAgent;
+    if (ua.match(/iPhone|iPad/)) {
+        // todo iOSのリアカメラ使うかどうかはここで設定
+        options.constraints.video.facingMode = {exact: "environment"}; // リアカメラにアクセス};
+    }
+}
+switchOS();
+// ----ここまで追記----
+
     function init() {
         var constraints = changeConstraints();
         try {
